@@ -1,0 +1,149 @@
+?   	desafio-banco-bexs/cli	[no test files]
+=== RUN   TestNew
+    path_test.go:187: New() PASSOU, era esperado 0 conexões e 0 aeroportos e obtivemos [] conexões e [] aeroportos.
+--- PASS: TestNew (0.00s)
+=== RUN   TestNewAirport
+    path_test.go:201: NewAirport() PASSOU, o código esperado era  'CGE' e obtivemos 'CGE'
+--- PASS: TestNewAirport (0.00s)
+=== RUN   TestGetAllConnections
+    path_test.go:213: GetAllConnections() PASSOU, esperado 8 connections, obtido(s) 8
+    path_test.go:223: GetAllConnections() PASSOU, esperado 13 connections, obtido(s) 13
+--- PASS: TestGetAllConnections (0.00s)
+=== RUN   TestGetAllAirport
+    path_test.go:235: GetAllConnections() PASSOU, esperado 5 aeroporto(s) obtido(s) 5
+    path_test.go:245: GetAllConnections() PASSOU, esperado 10 aeroporto(s) obtido(s) 10
+--- PASS: TestGetAllAirport (0.00s)
+=== RUN   TestHasConnection
+    path_test.go:257: HasConnection() PASSOU, esperado conexão between GRU->BRC, obtido(s) true
+    path_test.go:267: HasConnection() PASSOU, esperado conexão entre GRU->BLL, obtido(s) true
+--- PASS: TestHasConnection (0.00s)
+=== RUN   TestAirportAdded
+    path_test.go:277: AddAirport() PASSOU, esperado 5 aeroporto(s) obtido(s) 5
+    path_test.go:285: AddAirport() PASSOU, esperado 10 aeroporto(s) obtido(s) 10
+--- PASS: TestAirportAdded (0.00s)
+=== RUN   TestFindAirportByCode
+    path_test.go:297: FindAirportByCode() PASSOU, esperado o objeto do aeroporto GRU, obtido(s) GRU
+    path_test.go:307: FindAirportByCode() PASSOU, esperado o objeto do aeroporto CPH, obtido(s) CPH
+--- PASS: TestFindAirportByCode (0.00s)
+=== RUN   TestConnectionsAdded
+    path_test.go:317: AddConnection() PASSOU, esperado 8 conexões obtido(s) 8
+    path_test.go:325: AddConnection() PASSOU, esperado 13 conexões obtido(s) 13
+--- PASS: TestConnectionsAdded (0.00s)
+=== RUN   TestConnectionsFromAirport
+    path_test.go:345: GetConnectionsFromAirport() PASSOU, esperado [BRC CDG ORL SCL], obtido(s) [BRC CDG ORL SCL]
+--- PASS: TestConnectionsFromAirport (0.00s)
+=== RUN   TestBestPriceRoute
+    path_test.go:361: BestPriceRoute() [BRC->SCL] PASSOU, o caminho esperado era  'BRC - SCL' e foi(foram) obtido(s) 'BRC - SCL', o preço esperado era 5 e foi(foram) obtido(s) 5
+    path_test.go:361: BestPriceRoute() [BRC->ORL] PASSOU, o caminho esperado era  'BRC - ORL' e foi(foram) obtido(s) 'BRC - ORL', o preço esperado era 6 e foi(foram) obtido(s) 6
+    path_test.go:361: BestPriceRoute() [SCL->ORL] PASSOU, o caminho esperado era  'SCL - BRC - ORL' e foi(foram) obtido(s) 'SCL - BRC - ORL', o preço esperado era 11 e foi(foram) obtido(s) 11
+    path_test.go:372: BestPriceRoute() [BRC->BRC] PASSOU, esperado erro 'Não são permitidas (consideradas) rotas circulares', obtido(s) error '(Atenção) Rotas circulares não são permitidas.', caminho '[]', possui último caminho 'false', price '0'
+    path_test.go:372: BestPriceRoute() [SCL->SCL] PASSOU, esperado erro 'Não são permitidas (consideradas) rotas circulares', obtido(s) error '(Atenção) Rotas circulares não são permitidas.', caminho '[]', possui último caminho 'false', price '0'
+    path_test.go:372: BestPriceRoute() [ORL->ORL] PASSOU, esperado erro 'Não são permitidas (consideradas) rotas circulares', obtido(s) error '(Atenção) Rotas circulares não são permitidas.', caminho '[]', possui último caminho 'false', price '0'
+    path_test.go:389: BestPriceRoute() [GRU->BRC] PASSOU, o caminho esperado era  'GRU - BRC' e foi(foram) obtido(s) 'GRU - BRC', o preço esperado era 10 e foi(foram) obtido(s) 10
+    path_test.go:389: BestPriceRoute() [GRU->SCL] PASSOU, o caminho esperado era  'GRU - BRC - SCL' e foi(foram) obtido(s) 'GRU - BRC - SCL', o preço esperado era 15 e foi(foram) obtido(s) 15
+    path_test.go:389: BestPriceRoute() [GRU->ORL] PASSOU, o caminho esperado era  'GRU - BRC - ORL' e foi(foram) obtido(s) 'GRU - BRC - ORL', o preço esperado era 16 e foi(foram) obtido(s) 16
+    path_test.go:389: BestPriceRoute() [GRU->CDG] PASSOU, o caminho esperado era  'GRU - BRC - ORL - CDG' e foi(foram) obtido(s) 'GRU - BRC - ORL - CDG', o preço esperado era 21 e foi(foram) obtido(s) 21
+    path_test.go:389: BestPriceRoute() [BRC->SCL] PASSOU, o caminho esperado era  'BRC - SCL' e foi(foram) obtido(s) 'BRC - SCL', o preço esperado era 5 e foi(foram) obtido(s) 5
+    path_test.go:389: BestPriceRoute() [BRC->ORL] PASSOU, o caminho esperado era  'BRC - ORL' e foi(foram) obtido(s) 'BRC - ORL', o preço esperado era 6 e foi(foram) obtido(s) 6
+    path_test.go:389: BestPriceRoute() [BRC->CDG] PASSOU, o caminho esperado era  'BRC - ORL - CDG' e foi(foram) obtido(s) 'BRC - ORL - CDG', o preço esperado era 11 e foi(foram) obtido(s) 11
+    path_test.go:389: BestPriceRoute() [SCL->ORL] PASSOU, o caminho esperado era  'SCL - ORL' e foi(foram) obtido(s) 'SCL - ORL', o preço esperado era 20 e foi(foram) obtido(s) 20
+    path_test.go:389: BestPriceRoute() [SCL->CDG] PASSOU, o caminho esperado era  'SCL - ORL - CDG' e foi(foram) obtido(s) 'SCL - ORL - CDG', o preço esperado era 25 e foi(foram) obtido(s) 25
+    path_test.go:404: BestPriceRoute() [GRU->BRC] PASSOU, o caminho esperado era  'GRU - BRC' e foi(foram) obtido(s) 'GRU - BRC', o preço esperado era 10 e foi(foram) obtido(s) 10
+    path_test.go:404: BestPriceRoute() [GRU->SCL] PASSOU, o caminho esperado era  'GRU - BRC - SCL' e foi(foram) obtido(s) 'GRU - BRC - SCL', o preço esperado era 15 e foi(foram) obtido(s) 15
+    path_test.go:404: BestPriceRoute() [GRU->ORL] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL', o preço esperado era 35 e foi(foram) obtido(s) 35
+    path_test.go:404: BestPriceRoute() [GRU->CDG] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CDG' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CDG', o preço esperado era 40 e foi(foram) obtido(s) 40
+    path_test.go:404: BestPriceRoute() [GRU->CDG] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CDG' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CDG', o preço esperado era 40 e foi(foram) obtido(s) 40
+    path_test.go:404: BestPriceRoute() [GRU->CPH] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CPH' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CPH', o preço esperado era 235 e foi(foram) obtido(s) 235
+    path_test.go:404: BestPriceRoute() [GRU->SXF] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CPH - SXF' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CPH - SXF', o preço esperado era 240 e foi(foram) obtido(s) 240
+    path_test.go:404: BestPriceRoute() [GRU->FRA] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CPH - FRA' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CPH - FRA', o preço esperado era 246 e foi(foram) obtido(s) 246
+    path_test.go:404: BestPriceRoute() [GRU->BLL] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CPH - BLL' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CPH - BLL', o preço esperado era 314 e foi(foram) obtido(s) 314
+    path_test.go:404: BestPriceRoute() [GRU->TXL] PASSOU, o caminho esperado era  'GRU - BRC - SCL - ORL - CPH - BLL - TXL' e foi(foram) obtido(s) 'GRU - BRC - SCL - ORL - CPH - BLL - TXL', o preço esperado era 389 e foi(foram) obtido(s) 389
+    path_test.go:404: BestPriceRoute() [BRC->SCL] PASSOU, o caminho esperado era  'BRC - SCL' e foi(foram) obtido(s) 'BRC - SCL', o preço esperado era 5 e foi(foram) obtido(s) 5
+    path_test.go:404: BestPriceRoute() [BRC->ORL] PASSOU, o caminho esperado era  'BRC - SCL - ORL' e foi(foram) obtido(s) 'BRC - SCL - ORL', o preço esperado era 25 e foi(foram) obtido(s) 25
+    path_test.go:404: BestPriceRoute() [BRC->CDG] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CDG' e foi(foram) obtido(s) 'BRC - SCL - ORL - CDG', o preço esperado era 30 e foi(foram) obtido(s) 30
+    path_test.go:404: BestPriceRoute() [BRC->CPH] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CPH' e foi(foram) obtido(s) 'BRC - SCL - ORL - CPH', o preço esperado era 225 e foi(foram) obtido(s) 225
+    path_test.go:404: BestPriceRoute() [BRC->SXF] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CPH - SXF' e foi(foram) obtido(s) 'BRC - SCL - ORL - CPH - SXF', o preço esperado era 230 e foi(foram) obtido(s) 230
+    path_test.go:404: BestPriceRoute() [BRC->FRA] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CPH - FRA' e foi(foram) obtido(s) 'BRC - SCL - ORL - CPH - FRA', o preço esperado era 236 e foi(foram) obtido(s) 236
+    path_test.go:404: BestPriceRoute() [BRC->BLL] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CPH - BLL' e foi(foram) obtido(s) 'BRC - SCL - ORL - CPH - BLL', o preço esperado era 304 e foi(foram) obtido(s) 304
+    path_test.go:404: BestPriceRoute() [BRC->TXL] PASSOU, o caminho esperado era  'BRC - SCL - ORL - CPH - BLL - TXL' e foi(foram) obtido(s) 'BRC - SCL - ORL - CPH - BLL - TXL', o preço esperado era 379 e foi(foram) obtido(s) 379
+    path_test.go:404: BestPriceRoute() [SCL->ORL] PASSOU, o caminho esperado era  'SCL - ORL' e foi(foram) obtido(s) 'SCL - ORL', o preço esperado era 20 e foi(foram) obtido(s) 20
+    path_test.go:404: BestPriceRoute() [SCL->CDG] PASSOU, o caminho esperado era  'SCL - ORL - CDG' e foi(foram) obtido(s) 'SCL - ORL - CDG', o preço esperado era 25 e foi(foram) obtido(s) 25
+    path_test.go:404: BestPriceRoute() [SCL->CPH] PASSOU, o caminho esperado era  'SCL - ORL - CPH' e foi(foram) obtido(s) 'SCL - ORL - CPH', o preço esperado era 220 e foi(foram) obtido(s) 220
+    path_test.go:404: BestPriceRoute() [SCL->SXF] PASSOU, o caminho esperado era  'SCL - ORL - CPH - SXF' e foi(foram) obtido(s) 'SCL - ORL - CPH - SXF', o preço esperado era 225 e foi(foram) obtido(s) 225
+    path_test.go:404: BestPriceRoute() [SCL->FRA] PASSOU, o caminho esperado era  'SCL - ORL - CPH - FRA' e foi(foram) obtido(s) 'SCL - ORL - CPH - FRA', o preço esperado era 231 e foi(foram) obtido(s) 231
+    path_test.go:404: BestPriceRoute() [SCL->BLL] PASSOU, o caminho esperado era  'SCL - ORL - CPH - BLL' e foi(foram) obtido(s) 'SCL - ORL - CPH - BLL', o preço esperado era 299 e foi(foram) obtido(s) 299
+    path_test.go:404: BestPriceRoute() [SCL->TXL] PASSOU, o caminho esperado era  'SCL - ORL - CPH - BLL - TXL' e foi(foram) obtido(s) 'SCL - ORL - CPH - BLL - TXL', o preço esperado era 374 e foi(foram) obtido(s) 374
+    path_test.go:404: BestPriceRoute() [ORL->CDG] PASSOU, o caminho esperado era  'ORL - CDG' e foi(foram) obtido(s) 'ORL - CDG', o preço esperado era 5 e foi(foram) obtido(s) 5
+    path_test.go:404: BestPriceRoute() [ORL->CPH] PASSOU, o caminho esperado era  'ORL - CPH' e foi(foram) obtido(s) 'ORL - CPH', o preço esperado era 200 e foi(foram) obtido(s) 200
+    path_test.go:404: BestPriceRoute() [ORL->SXF] PASSOU, o caminho esperado era  'ORL - CPH - SXF' e foi(foram) obtido(s) 'ORL - CPH - SXF', o preço esperado era 205 e foi(foram) obtido(s) 205
+    path_test.go:404: BestPriceRoute() [ORL->FRA] PASSOU, o caminho esperado era  'ORL - CPH - FRA' e foi(foram) obtido(s) 'ORL - CPH - FRA', o preço esperado era 211 e foi(foram) obtido(s) 211
+    path_test.go:404: BestPriceRoute() [ORL->BLL] PASSOU, o caminho esperado era  'ORL - CPH - BLL' e foi(foram) obtido(s) 'ORL - CPH - BLL', o preço esperado era 279 e foi(foram) obtido(s) 279
+    path_test.go:404: BestPriceRoute() [ORL->TXL] PASSOU, o caminho esperado era  'ORL - CPH - BLL - TXL' e foi(foram) obtido(s) 'ORL - CPH - BLL - TXL', o preço esperado era 354 e foi(foram) obtido(s) 354
+    path_test.go:404: BestPriceRoute() [CPH->SXF] PASSOU, o caminho esperado era  'CPH - SXF' e foi(foram) obtido(s) 'CPH - SXF', o preço esperado era 5 e foi(foram) obtido(s) 5
+    path_test.go:404: BestPriceRoute() [CPH->FRA] PASSOU, o caminho esperado era  'CPH - FRA' e foi(foram) obtido(s) 'CPH - FRA', o preço esperado era 11 e foi(foram) obtido(s) 11
+    path_test.go:404: BestPriceRoute() [CPH->BLL] PASSOU, o caminho esperado era  'CPH - BLL' e foi(foram) obtido(s) 'CPH - BLL', o preço esperado era 79 e foi(foram) obtido(s) 79
+    path_test.go:404: BestPriceRoute() [CPH->TXL] PASSOU, o caminho esperado era  'CPH - BLL - TXL' e foi(foram) obtido(s) 'CPH - BLL - TXL', o preço esperado era 154 e foi(foram) obtido(s) 154
+    path_test.go:404: BestPriceRoute() [BLL->TXL] PASSOU, o caminho esperado era  'BLL - TXL' e foi(foram) obtido(s) 'BLL - TXL', o preço esperado era 75 e foi(foram) obtido(s) 75
+--- PASS: TestBestPriceRoute (0.00s)
+PASS
+ok  	desafio-banco-bexs/domain	(cached)
+?   	desafio-banco-bexs/rest	[no test files]
+=== RUN   TestReadCsv
+    parser_test.go:39: csvparser.Read() do caminho testdata/file1.csv PASSOU, esperava [[GRU BRC 20] [BRC SCL 5]] e  obtivemos '[[GRU BRC 10] [BRC SCL 5]]'
+    parser_test.go:39: csvparser.Read() do caminho testdata/file2.csv PASSOU, esperava [[GRU CDG 75] [SCL ORL 20]] e  obtivemos '[[GRU CDG 75] [SCL ORL 20]]'
+--- PASS: TestReadCsv (0.00s)
+=== RUN   TestWriteCsv
+    parser_test.go:104: csvparser.Write() do caminho {testdata/file1_testwrite.csv [[GRU BRC 20] [BRC SCL 5] [GRU BRC 20] [BRC SCL 5]]} PASSOU, esperava [[GRU BRC 20] [BRC SCL 5] [GRU BRC 20] [BRC SCL 5]] e  obtivemos '[[GRU BRC 10] [BRC SCL 5] [GRU BRC 10] [BRC SCL 5]]'
+    parser_test.go:104: csvparser.Write() do caminho {testdata/file2_testwrite.csv [[GRU CDG 75] [SCL ORL 20] [GRU CDG 75] [SCL ORL 20]]} PASSOU, esperava [[GRU CDG 75] [SCL ORL 20] [GRU CDG 75] [SCL ORL 20]] e  obtivemos '[[GRU CDG 75] [SCL ORL 20] [GRU CDG 75] [SCL ORL 20]]'
+--- PASS: TestWriteCsv (0.00s)
+=== RUN   TestCreateWrite
+    parser_test.go:140: csvparser.CreateWrite() do caminho testdata/createwrite_test1.csv PASSOU, esperava [[GRU BRC 20] [BRC SCL 5] [GRU BRC 20] [BRC SCL 5]] e obtivemos '[[GRU BRC 20] [BRC SCL 5] [GRU BRC 20] [BRC SCL 5]]'
+    parser_test.go:140: csvparser.CreateWrite() do caminho testdata/createwrite_test1.csv PASSOU, esperava [[GRU CDG 75] [SCL ORL 20] [GRU CDG 75] [SCL ORL 20]] e obtivemos '[[GRU CDG 75] [SCL ORL 20] [GRU CDG 75] [SCL ORL 20]]'
+--- PASS: TestCreateWrite (0.00s)
+=== RUN   TestEmptyDataCreateWrite
+    parser_test.go:160: csvparser.CreateWrite() do caminho testdata/createwrite_test1.csv PASSOU, esperava um erro 'Não há dados para serem gravados.' e  obtivemos um erro 'Não há dados para serem gravados.'
+    parser_test.go:160: csvparser.CreateWrite() do caminho testdata/createwrite_test1.csv PASSOU, esperava um erro 'Não há dados para serem gravados.' e  obtivemos um erro 'Não há dados para serem gravados.'
+--- PASS: TestEmptyDataCreateWrite (0.00s)
+=== RUN   TestEmptyDataWrite
+    parser_test.go:185: csvparser.Write() do caminho testdata/file1_testwrite.csv FALHOU, esperava um erro 'Sem dados para serem gravados.' mas não obtive erro
+    parser_test.go:185: csvparser.Write() do caminho testdata/file2_testwrite.csv FALHOU, esperava um erro 'Sem dados para serem gravados.' mas não obtive erro
+--- FAIL: TestEmptyDataWrite (0.00s)
+=== RUN   TestEmptyPathCreateWrite
+    parser_test.go:202: csvparser.CreateWrite() do caminho  PASSOU, esperava um erro 'o Path está vazio, por favor tente novamente' e  obtivemos um erro 'o Path está vazio, por favor tente novamente'
+    parser_test.go:202: csvparser.CreateWrite() do caminho  PASSOU, esperava um erro 'o Path está vazio, por favor tente novamente' e  obtivemos um erro 'o Path está vazio, por favor tente novamente'
+--- PASS: TestEmptyPathCreateWrite (0.00s)
+=== RUN   TestEmptyPathWrite
+    parser_test.go:219: csvparser.Write() do caminho  PASSOU, esperava um erro 'o Path está vazio, por favor tente novamente' e  obtivemos um erro 'o Path está vazio, por favor tente novamente'
+    parser_test.go:219: csvparser.Write() do caminho  PASSOU, esperava um erro 'o Path está vazio, por favor tente novamente' e  obtivemos um erro 'o Path está vazio, por favor tente novamente'
+--- PASS: TestEmptyPathWrite (0.00s)
+FAIL
+FAIL	desafio-banco-bexs/services/csv	0.011s
+=== RUN   TestCopy
+    file_test.go:33: Copy() with args _testread.csv->_testwrite.csv PASSED, expected an error and got error 'open _testread.csv: no such file or directory'
+    file_test.go:33: Copy() with args ../csv/testdata/file1.csv->/etc/testtt PASSED, expected an error and got error 'open /etc/testtt: permission denied'
+    file_test.go:43: Copy() with args ../csv/testdata/file1.csv->testdata/_testwrite.csv PASSED, expected no error and got no error
+--- PASS: TestCopy (0.00s)
+=== RUN   TestFileExists
+    file_test.go:64: FileExists() with args file.go PASSED, expected 'true' and got value 'true'
+    file_test.go:64: FileExists() with args file123.go PASSED, expected 'false' and got value 'false'
+    file_test.go:64: FileExists() with args ../utils PASSED, expected 'false' and got value 'false'
+--- PASS: TestFileExists (0.00s)
+=== RUN   TestFilenameTrimmedSuffix
+    string_test.go:26: FilenameTrimmedSuffix() with args testdata/file1.csv PASSED, expected testdata/file1 and got value 'testdata/file1'
+    string_test.go:26: FilenameTrimmedSuffix() with args testdata/file2.csv PASSED, expected testdata/file2 and got value 'testdata/file2'
+    string_test.go:26: FilenameTrimmedSuffix() with args testdata/file1 PASSED, expected testdata/file1 and got value 'testdata/file1'
+--- PASS: TestFilenameTrimmedSuffix (0.00s)
+=== RUN   TestCompareStringArrays
+    string_test.go:38: CompareStringArrays() with different arrays PASSED, expected [BRC CDG ORL SCL] and got [BRC CDG GRU SCL]
+    string_test.go:44: CompareStringArrays() with empty string array PASSED, expected [BRC CDG ORL SCL] and got []
+    string_test.go:50: CompareStringArrays() with empty string array PASSED, expected [] and got [BRC CDG ORL SCL]
+    string_test.go:56: CompareStringArrays() PASSED, expected [BRC CDG ORL SCL] and got [BRC CDG ORL SCL]
+--- PASS: TestCompareStringArrays (0.00s)
+=== RUN   TestTrimAndUpper
+    string_test.go:75: TestTrimAndUpper() with args BRC  PASSED, expected 'BRC' and got value 'BRC'
+    string_test.go:75: TestTrimAndUpper() with args  ORL PASSED, expected 'ORL' and got value 'ORL'
+    string_test.go:75: TestTrimAndUpper() with args  cdg  PASSED, expected 'CDG' and got value 'CDG'
+--- PASS: TestTrimAndUpper (0.00s)
+PASS
+ok  	desafio-banco-bexs/services/utils	0.008s
+FAIL

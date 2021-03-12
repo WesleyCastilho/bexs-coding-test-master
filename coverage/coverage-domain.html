@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">desafio-banco-bexs/domain/path.go (97.9%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package domain
+
+import (
+        "errors"
+        "sort"
+)
+
+// Airport as vertex
+type Airport struct {
+        code string
+}
+
+// Connection as edge
+type Connection struct {
+        from  *Airport
+        to    *Airport
+        price uint64
+}
+
+type PathConnectionPrice struct {
+        airportCodePath    []string
+        totalPrice         uint64
+        hasLastDestination bool
+}
+
+// Routes as graph structure
+type Routes struct {
+        connections []*Connection
+        airport    []*Airport
+}
+
+const Infinity = uint64(^uint64(0) &gt;&gt; 1)
+
+func New() *Routes <span class="cov0" title="0">{
+        return &amp;Routes{
+                airport:    []*Airport{},
+                connections: []*Connection{},
+        }
+}</span>
+
+func NewAirport(code string) *Airport <span class="cov8" title="1">{
+        return &amp;Airport{code}
+}</span>
+
+func (r *Routes) AddConnection(from *Airport, to *Airport, price uint64) <span class="cov8" title="1">{
+        connection := &amp;Connection{
+                from:  from,
+                to:    to,
+                price: price,
+        }
+
+        r.connections = append(r.connections, connection)
+        r.AddAirport(from)
+        r.AddAirport(to)
+}</span>
+
+func (r *Routes) GetAllConnections() []*Connection <span class="cov8" title="1">{
+        return r.connections
+}</span>
+
+func (r *Routes) GetAllAirport() []*Airport <span class="cov8" title="1">{
+        return r.airport
+}</span>
+
+func (r *Routes) HasConnection(from *Airport, to *Airport) bool <span class="cov8" title="1">{
+        for _, c := range r.connections </span><span class="cov8" title="1">{
+                if c.from.code == from.code &amp;&amp; c.to.code == to.code </span><span class="cov8" title="1">{
+                        return true
+                }</span>
+        }
+        <span class="cov8" title="1">return false</span>
+}
+
+func (r *Routes) AddAirport(airport *Airport) <span class="cov8" title="1">{
+        var isAirportPresent bool
+        for _, a := range r.airport </span><span class="cov8" title="1">{
+                if a.code == airport.code </span><span class="cov8" title="1">{
+                        isAirportPresent = true
+                }</span>
+        }
+        <span class="cov8" title="1">if !isAirportPresent </span><span class="cov8" title="1">{
+                r.airport = append(r.airport, airport)
+        }</span>
+}
+
+func (r *Routes) FindAirportByCode(code string) *Airport <span class="cov8" title="1">{
+        var airport *Airport
+        airport = nil
+        for _, a := range r.airport </span><span class="cov8" title="1">{
+                if a.code == code </span><span class="cov8" title="1">{
+                        airport = a
+                }</span>
+        }
+        <span class="cov8" title="1">return airport</span>
+}
+
+func (r *Routes) GetConnectionsFromAirport(airport *Airport) (connections []*Connection) <span class="cov8" title="1">{
+        for _, connection := range r.connections </span><span class="cov8" title="1">{
+                if connection.from.code == airport.code </span><span class="cov8" title="1">{
+                        connections = append(connections, connection)
+                }</span>
+        }
+        <span class="cov8" title="1">return connections</span>
+}
+
+func (r *Routes) BestPriceRoute(from *Airport, to *Airport, origin *Airport, accumulatedPath []string, accumulatedPrice uint64) (error, bool, []string, uint64) <span class="cov8" title="1">{
+        if from.code == to.code &amp;&amp; from.code == origin.code &amp;&amp; to.code == origin.code </span><span class="cov8" title="1">{
+                return errors.New("Não são permitidas (consideradas) rotas circulares"), false, nil, 0
+        }</span>
+
+        <span class="cov8" title="1">pathConnectionPrices := []*PathConnectionPrice{}
+
+        // Get all connections from airport node
+        connections := r.GetConnectionsFromAirport(from)
+
+        if from.code == to.code &amp;&amp; from.code != origin.code </span><span class="cov8" title="1">{
+                // Reached destination, but it might be not the end of the path. We end the path here
+                return nil, true, append(accumulatedPath, from.code), accumulatedPrice
+        }</span> else<span class="cov8" title="1"> if len(connections) == 0 </span><span class="cov8" title="1">{
+                // Reached last node point. Should not continue
+                return nil, false, append(accumulatedPath, from.code), accumulatedPrice
+        }</span> else<span class="cov8" title="1"> {
+                // Loop through each connection to get their path price
+                for _, conn := range connections </span><span class="cov8" title="1">{
+                        if origin.code != to.code &amp;&amp; conn.to.code == origin.code </span><span class="cov8" title="1">{
+                                // Avoid circular loop
+                                continue</span>
+                        }
+                        <span class="cov8" title="1">_, hasLastDestination, recursionPath, recursionPrice := r.BestPriceRoute(conn.to, to, origin, append(accumulatedPath, from.code), (accumulatedPrice + conn.price))
+
+                        // Append path only if it has the last node destination
+                        if hasLastDestination </span><span class="cov8" title="1">{
+                                pathConnectionPrices = append(pathConnectionPrices, &amp;PathConnectionPrice{recursionPath, recursionPrice, hasLastDestination})
+                        }</span>
+                }
+
+                // Loop path connection prices last returns and check
+                // If it has, check if path price is cheaper than the others (sort)
+                <span class="cov8" title="1">sort.Slice(pathConnectionPrices, func(i, j int) bool </span><span class="cov8" title="1">{
+                        return pathConnectionPrices[i].totalPrice &lt; pathConnectionPrices[j].totalPrice
+                }</span>)
+
+                <span class="cov8" title="1">if len(pathConnectionPrices) == 0 </span><span class="cov8" title="1">{
+                        return nil, false, append(accumulatedPath, from.code), accumulatedPrice
+                }</span> else<span class="cov8" title="1"> {
+                        return nil, pathConnectionPrices[0].hasLastDestination, pathConnectionPrices[0].airportCodePath, pathConnectionPrices[0].totalPrice
+                }</span>
+        }
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>
