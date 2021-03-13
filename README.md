@@ -154,20 +154,25 @@ $HOME/go/bin/gotest ./domain -v
 
 ## Decisões sobre a Resolução do Problema
 
-### Brief algorithm explanation
+### Breve explicação do algoritmo
+##### Aviso: Este texto não tem a intenção de esclarecer a teoria dos grafos, é um assunto complexo, ao qual ainda não domino.
 
 O teste se assemelha com o "Problema do Caixeiro Viajante", que visa encontar a menor distancia entre um ponto e outro(cidades no caso) sem repetir o caminho(rota)
 
 Para solucionar foi utilizado o algoritmo de Dijkstra (https://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra), este algoritmo recebe um grafo
 orientado (G,w) (sem arestas de peso negativo) e um vértice s de G, e devolve para cada v E V[G], o peso de um caminho mínimo de s a v.
 
-O algoritmo utiliza recursão, sempre buscando o caminho mais barato procurando dentro dos nós internos e identificando se é um destino possível ou se o caminho interno deve ser descartado (semelhante à primeira pesquisa de profundidade nas pesquisas em árvore).
+O algoritmo utiliza recursão, sempre buscando o caminho mais barato procurando dentro dos nós internos e identificando se é um destino possível ou 
+se o caminho interno deve ser descartado (semelhante à primeira pesquisa de profundidade nas pesquisas em árvore).
 Ao longo da execução, os caminhos são acumulados em uma matriz, enquanto o preço total é aumentado de acordo com o preço da rota mais barata.
-Para aplicar o principio de responsabilidade unica, a logica da rota principal, foi separada em um pacote e exposta como uma interface para utilizacao tanto pelo cli quanto pela API.
-Para dividir as responsabilidades, a lógica da rota principal foi separada em um pacote, exposta como uma interface para a interface de linha de comando e o servidor HTTP REST. 
-Da mesma forma, outras responsabilidades foram agrupadas em pacotes de serviço, como um analisador CSV para ler/gravar o arquivo de rotas de entrada, analisadores de string/arquivo que combinam métodos em utilitários (por exemplo, trim e superior uma string para a origem / comparação do código de destino).
+Para aplicar o princípio de responsabilidade única, a lógica da rota principal foi separada em um pacote e exposta como uma interface para 
+utilização tanto pelo cli quanto pela API.
 
-### Decisions over Go
+Da mesma forma, outras responsabilidades foram agrupadas em pacotes de serviço, como um analisador CSV para ler/gravar o arquivo de rotas de 
+entrada, analisadores de string/arquivo que combinam métodos em utilitários 
+(por exemplo, trim e superior uma string para a origem / comparação do código de destino).
+
+### Porque Utilizei Go
 
 A opção pela linguagem Go, foi além de passional(rs) pautadas nos seguintes pontos:
 
@@ -182,7 +187,7 @@ Além de possuir uma extensa biblioteca padrão com ferramentas para comunicaç�
 
 - Flexibilidade: Não preciso me locomover entre múltiplas interfaces, estruturas super-hierárquicas ou código verboso, Go trabalha bem com múltiplos  paradigmas por meio de suas composições, estruturas e tratamento de erros
 
-- Go é orientado para micro serviços, como estou procurando alinhar a minha carreira com o modelo Full Cycle, e aplicações em arquitetura hexagonal,
+- Go é orientado a micro serviços, como estou procurando alinhar a minha carreira com o modelo Full Cycle, e aplicações em arquitetura hexagonal,
  fez mais sentido para mim, além de ser parte da Stack utilizada atualmente pelo Banco Bexs [:)] 
  
 ### Servidor HTTP
