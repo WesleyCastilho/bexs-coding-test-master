@@ -22,7 +22,7 @@ Bibliotecas serão instaladas automaticamente ao executar o projeto
 go run ./cli/input-routes.csv
 ```
 
-Após isto, basta seguir as instruções do prompt, mas lembre-se a rota digitada para consulta deve seguir o padrão IATA para aeroportos, por exemplo: CGH-FLN (Congonhas-Florianópolis)
+Após isto, basta seguir as instruções do prompt, mas lembre-se a rota digitada para consulta deve seguir o padrão [IATA]((http://atualdespachos.com.br/assets/Uploads/Aeroportos-do-Mundo-e-cdigo-IATA.pdf)) para aeroportos, por exemplo: CGH-FLN (Congonhas-Florianópolis)
 ```bash
 
 Abaixo mostramos como podem ser realizadas as consultas.

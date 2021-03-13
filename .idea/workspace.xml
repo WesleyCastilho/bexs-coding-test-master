@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03a9ef32-50ec-46bb-a578-e7fc2869ee2c" name="Default Changelist" comment="Banco Bexs desafio">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +28,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="346">
-                <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+              <first_editor relative-caret-position="155">
+                <caret line="24" column="203" selection-start-line="24" selection-start-column="203" selection-end-line="24" selection-end-column="203" />
               </first_editor>
               <second_editor />
             </state>
@@ -47,6 +46,7 @@
       <find>BRC)</find>
       <find>sair</find>
       <find>ctr</find>
+      <find>IATA</find>
     </findStrings>
     <replaceStrings>
       <replace>melhor preço</replace>
@@ -218,7 +218,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.1781022" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.1781022" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -342,8 +342,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="346">
-            <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+          <first_editor relative-caret-position="155">
+            <caret line="24" column="203" selection-start-line="24" selection-start-column="203" selection-end-line="24" selection-end-column="203" />
           </first_editor>
           <second_editor />
         </state>
