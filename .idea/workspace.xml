@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03a9ef32-50ec-46bb-a578-e7fc2869ee2c" name="Default Changelist" comment="Banco Bexs desafio">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/coverage-domain.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/coverage-domain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/coverage-services_csv.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/coverage-services_csv.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/coverage-services_utils.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/coverage-services_utils.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverage/coverage.html" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/coverage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/domain/path_test.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
-              <caret line="390" column="5" lean-forward="true" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
+              <caret line="390" column="5" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
               <folding>
                 <element signature="e#16#96#0" expanded="true" />
               </folding>
@@ -33,8 +29,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-8">
-                <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+              <first_editor relative-caret-position="346">
+                <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
               </first_editor>
               <second_editor />
             </state>
@@ -68,6 +64,7 @@
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -146,7 +143,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -221,7 +218,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.17518248" />
+      <window_info anchor="bottom" id="Terminal" weight="0.1781022" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -335,7 +332,7 @@
     <entry file="file://$PROJECT_DIR$/domain/path_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
-          <caret line="390" column="5" lean-forward="true" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
+          <caret line="390" column="5" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
           <folding>
             <element signature="e#16#96#0" expanded="true" />
           </folding>
@@ -345,8 +342,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-8">
-            <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+          <first_editor relative-caret-position="346">
+            <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           </first_editor>
           <second_editor />
         </state>

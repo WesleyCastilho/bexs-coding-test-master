@@ -1,4 +1,4 @@
-# Bexs Bank - Software Engineer Rota de Viagem
+# Banco Bexs - Software Engineer Rota de Viagem
 Rota de Viagem
 
 Um turista deseja viajar pelo mundo pagando o menor preço possível independentemente do número de conexões necessárias. Vamos construir um programa que facilite ao nosso turista, escolher a melhor rota para sua viagem.
@@ -7,7 +7,7 @@ Para isso precisamos inserir as rotas através de um arquivo de entrada.
 
 ## Como utilizar
 
-- Confirme a versão instalada da linguagem Go, para este projeto utilizamos a versão 1.16
+- Confirme a versão instalada da linguagem Go, para este projeto utilizei a versão 1.16
 
 ```bash
 go version
@@ -22,7 +22,7 @@ Bibliotecas serão instaladas automaticamente ao executar o projeto
 go run ./cli/input-routes.csv
 ```
 
-Após isto, basta seguir as instruções do prompt, mas lembre-se a rota digitada para consulta degve seguir o padrão IATA para aeroportos, por exemplo: CGH-FLN (Congonhas-Florianópolis)
+Após isto, basta seguir as instruções do prompt, mas lembre-se a rota digitada para consulta deve seguir o padrão IATA para aeroportos, por exemplo: CGH-FLN (Congonhas-Florianópolis)
 ```bash
 
 Abaixo mostramos como podem ser realizadas as consultas.
