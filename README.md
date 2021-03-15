@@ -85,7 +85,7 @@ curl -i -GET "localhost:8080"
     {"From":"GRU","To":"CDG","Path":"GRU - CDG","Price":10}). <br/>
     * Se houver um erro, retorna com o status http error 
 
-Example:
+Exemplo:
 
 ```bash
 curl -i -GET "localhost:8080/route?from=GRU&to=BRC"
@@ -97,7 +97,7 @@ curl -i -GET "localhost:8080/route?from=GRU&to=BRC"
   - price (obrigatório - required, int): path price (e.g. 20, 5)
   - Retorna um header com status 200 se for processado com sucesso. Se houver um erro, retorna com o status http error 
 
-Example:
+Exemplo:
 
 ```bash
 curl -i -XPOST "localhost:8080/route" -H "Content-Type: application/json" --data '{"from": "BLL", "to": "SXF", "price": 10}'
